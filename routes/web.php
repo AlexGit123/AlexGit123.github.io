@@ -1,5 +1,11 @@
 <?php
 
+use App\Http\Controllers\AboutMeController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FAQController;
+use App\Http\Controllers\HBOController;
+use App\Http\Controllers\ProfessionController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +34,24 @@ Route::get('/posts/{post}',  function($post){
     ]);
 });
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Returns homepage
+Route::get('/', [WelcomeController::class, 'show']);
+
+//Returns about me page
+Route::get('/about', [AboutMeController::class, 'show']);
+
+//Returns dashboard
+Route::get('/dashboard', [DashboardController::class, 'show']);
+
+
+//returns FAQ
+Route::get('/FAQ', [FAQController::class, 'show']);
+
+//returns HBO
+Route::get('/HBO', [HBOController::class, 'show']);
+
+//returns profession
+Route::get('/profession', [ProfessionController::class, 'show']);
+
+
+
