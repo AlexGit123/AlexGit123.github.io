@@ -28,69 +28,25 @@
     <div style="text-align: center; background-color: white; height: 550px">
       <h1>Frequently Asked Questions</h1>
 
-      <!--  -->
       <ol>
-        <details style="padding-bottom: 10px">
-          <summary>Where and how can I use the HZ student card?</summary>
+       @foreach($faqs as $faq)
+              <details style="padding-bottom: 10px">
 
-          <p>
-            The HZ student card can be used by topping it up using the machine
-            located next to the help desk at the entrance of the campus. Once
-            you've put cash on the card, you can scan it at the printer, coffee
-            and vending machines and lockers
-          </p>
-        </details>
-
-        <details style="padding-bottom: 10px">
           <summary>
-            How can you print a document from your laptop at HZ?
+              {{ $faq->question}}
           </summary>
 
           <p>
-            To print at HZ, you have to have a student identification card. You
-            scan in and then proceed to print.
+              {{ $faq->answer}}
           </p>
-        </details>
-
-        <details style="padding-bottom: 10px">
-          <summary>
-            How can you scan a document and send it to your laptop at HZ?
-          </summary>
-
-          <p>https://learn.hz.nl/my/</p>
-        </details>
-
-        <details style="padding-bottom: 10px">
-          <summary>
-            What do you need to do when you are sick / show symptoms of
-            coronavirus?
-          </summary>
 
           <p>
-            Refrain from visiting the campus and get in contact with one of the
-            study coaches to inform them of your situation.
+                {{ $faq->link}}
           </p>
+
         </details>
 
-        <details style="padding-bottom: 10px">
-          <summary>
-            How can you book a project space in one of the wings?
-          </summary>
-
-          <p>
-            To book a project room in one of the wings, you go to the hz.nl
-            portal > self service portal and then click, "new reservation".
-          </p>
-        </details>
-
-        <details style="padding-bottom: 10px">
-          <summary>
-            What are the instructions if you want to park your car at the HZ
-            parking lot?
-          </summary>
-
-          <p>https://github.com/</p>
-        </details>
+       @endforeach
       </ol>
     </div>
 
