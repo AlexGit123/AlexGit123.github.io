@@ -1,8 +1,13 @@
 @extends('layout')
 
 @section('content')
+
+    <div>
+        <h1 style="text-align: center">Blog Post</h1>
+
+    </div>
 <div id="title" style="text-align: center; padding-top: 20px">
-    <!--Where profession page starts, including all companies and IT profressions-->
+    <!--Where profession page starts, including all companies and IT professions-->
     <div style="background-color: whitesmoke; height: 4350px">
         <h1 style="padding-top: 5px; padding-bottom: 20px">Apple</h1>
 

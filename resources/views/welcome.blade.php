@@ -18,4 +18,29 @@
         src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fassets.entrepreneur.com%2Fcontent%2F3x2%2F2000%2F20180315194714-GettyImages-862545030.jpeg&f=1&nofb=1"
     />
 </div>
+
+
+<div style="text-align: center">
+
+    <h1> Blog </h1>
+
+  <ul>
+     <li style="list-style-type: none">
+            @foreach($articles as $article)
+
+        <h3>
+            <a href="/articles/{{$article->id}}">{{$article->title}}</a>
+            </h3>
+
+         <p>{{$article->excerpt}}</p>
+
+     </li>
+      @endforeach
+  </ul>
+
+
+
+
+</div>
+
 @endsection

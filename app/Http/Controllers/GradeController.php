@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Grade;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class GradeController extends Controller
 {
@@ -46,7 +47,10 @@ class GradeController extends Controller
      */
     public function show(Grade $grade)
     {
-        //
+//        $grade = DB::table('grades')->where('grade',$grade);
+
+        //$post = DB::table('posts')->where('slug', $slug)->first();
+
     }
 
     /**

@@ -110,7 +110,7 @@
 
         <td rowspan="3">1</td>
 
-        <td>Program and Career Orientation</td>
+        <td>{{$grade->course_name}}</td>
 
         <td>2.5</td>
 

@@ -28,7 +28,7 @@
 
                 <li class="{{ Request::path() === 'profession' ? 'current_item' : '' }}"><a href="/profession">profession</a></li>
 
-                <li class="{{ Request::path() === '#' ? 'current_item' : '' }}"><a href="#">Contact Me</a></li>
+                <li class="{{ Request::path() === 'articles' ? 'current_item' : '' }}"><a href="/articles">Articles</a></li>
             </ul>
         </nav>
 
@@ -50,7 +50,7 @@
         style="padding: 20px; color: white; font-size: 30px"
         class="header"
     >
-        Contact me!
+        Contact me
     </header>
 
     <script

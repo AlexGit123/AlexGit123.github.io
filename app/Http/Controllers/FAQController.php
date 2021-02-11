@@ -10,9 +10,27 @@ class FAQController extends Controller
 
     $faqs = Faq::all();
 
-        return view('faq', [
+        return view('/faqs/faq', [
                 'faqs' => $faqs
             ]);
+    }
+
+    public function create(){
+
+        return view('faqs.create');
+    }
+
+    public function store(){
+
+        $faq = new Faq();
+
+        $faq->question = \request('question');
+        $faq->answer = \request('answer');
+        $faq->link = \request('link');
+
+        $faq->save();
+
+        return redirect('faqs');
     }
     //
 }
