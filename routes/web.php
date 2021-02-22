@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutMeController;
 use App\Http\Controllers\ArticlesController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FAQController;
+use App\Http\Controllers\GradeController;
 use App\Http\Controllers\HBOController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ProfessionController;
@@ -32,24 +33,34 @@ Route::get('/', function (){
         ]);
 });
 
-//Handles the articles and their routing
-Route::get('/articles', [ArticlesController::class, 'index']);
-Route::post('/articles/', [ArticlesController::class, 'store']);
-Route::get('/articles/create', [ArticlesController::class, 'create']);
-Route::get('/articles/{article}', [ArticlesController::class, 'show']);
+//Returns articles and CRUD implementations
+Route::resource('/articles', ArticlesController::class);
+
 
 
 //Returns about me page
 Route::get('/about', [AboutMeController::class, 'show']);
 
+
+
+Route::get('/dashboard', function (){
+
+    return view('dashboard', [
+        'grade' => App\Models\Grade::take()->all()
+    ]);
+});
 //Returns dashboard
 Route::get('/dashboard', [DashboardController::class, 'show']);
 
 
-//returns FAQ
-Route::get('/faqs', [FAQController::class, 'show']);
-Route::post('/faqs/', [FAQController::class, 'store']);
-Route::get('/faqs/create', [FAQController::class, 'create']);
+//returns FAQ and CRUD implementations
+Route::resource('/faqs', FAQController::class);
+//Route::get('/faqs/{faq}', [FAQController::class, 'show']);
+//Route::get('/faqs/create', [FAQController::class, 'create']);
+//Route::post('/faqs/', [FAQController::class, 'store']);
+//Route::get('/faqs/{faq}/edit', [FAQController::class, 'edit']);
+//Route::put('/faqs/{faq}', [FAQController::class, 'update']);
+//Route::delete('/faqs/{faq}', [FAQController::class, 'delete']);
 
 //returns HBO
 Route::get('/HBO', [HBOController::class, 'show']);
@@ -58,4 +69,13 @@ Route::get('/HBO', [HBOController::class, 'show']);
 Route::get('/profession', [ProfessionController::class, 'show']);
 
 
+Route::resource('/grades', GradeController::class);
+
+//Route::get('/grades', [GradeController::class, 'show']);
+//Route::get('/grade/{grade}', [GradeController::class, 'show']);
+//Route::get('/grades/create', [GradeController::class, 'create']);
+//Route::post('/grades/', [GradeController::class, 'store']);
+//Route::get('/grades/{grade}/edit', [GradeController::class, 'edit']);
+//Route::put('/grades/{grade}', [GradeController::class, 'update']);
+//Route::delete('/grades/{grade}', [GradeController::class, 'delete']);
 

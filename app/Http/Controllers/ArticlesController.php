@@ -15,9 +15,7 @@ class ArticlesController extends Controller
     }
 
 
-    public function show($id){
-
-        $article = Article::find($id);
+    public function show(Article $article){
 
         return view('articles.show', ['article' => $article]);
 
@@ -28,19 +26,41 @@ class ArticlesController extends Controller
         return view('articles.create');
     }
 
-    public function store(){
+    public function store(Request $request){
 
-//        dump(\request()->all());
+        Article::create($this->validateArticle($request));
 
-        $article = new Article();
-
-        $article->title = \request('title');
-        $article->excerpt = \request('excerpt');
-        $article->body = \request('body');
-
-        $article->save();
-
-        return redirect('/articles');
+        return redirect(route('articles.index'));
     }
 
+    public function edit(Article $article){
+
+        return view('articles.edit', ['article' => $article]);
+    }
+
+
+    public function update(Article $article, Request $request){
+
+        $article->update($this->validateArticle($request));
+
+        return redirect(route('articles.show', $article));
+    }
+
+    public function delete($id){
+
+        $article = Article::find($id);
+
+        $article->delete();
+
+        return redirect(route('articles.index', $article));
+    }
+
+    public function validateArticle(Request $request)
+    {
+        return $request->validate([
+            'title' => 'required',
+            'excerpt' => 'required',
+            'body' => 'required'
+        ]);
+    }
 }

@@ -17,7 +17,7 @@ class GradeSeeder extends Seeder
         DB::table('grades')->insert([
             'course_name' =>'Program and Career Orientation',
             'test_name' =>'Assessment',
-            'lowest_passing-grade' => 5.5,
+            'lowest_passing_grade' => 5.5,
             'best_grade' => 10
         ]);
     }

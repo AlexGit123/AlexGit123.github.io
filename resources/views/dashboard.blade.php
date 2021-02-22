@@ -1,5 +1,8 @@
 @extends('layout')
 
+<?php
+use App\Models\Grade
+?>
 @section('content')
 <title> Dashboard </title>
 
@@ -110,7 +113,7 @@
 
         <td rowspan="3">1</td>
 
-        <td>{{$grade->course_name}}</td>
+        <td></td>
 
         <td>2.5</td>
 

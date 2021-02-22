@@ -8,82 +8,73 @@ use Illuminate\Support\Facades\DB;
 
 class GradeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
+    public function index(){
+
+        $grades = Grade::all();
+
+        return view('grades.index', ['grades' => $grades]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Grade  $grade
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Grade $grade)
-    {
-//        $grade = DB::table('grades')->where('grade',$grade);
-
-        //$post = DB::table('posts')->where('slug', $slug)->first();
+        return view('grades.create');
 
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Grade  $grade
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Grade $grade)
+
+    public function store()
     {
-        //
+        $grade = new Grade();
+
+        $grade->course_name = request('course_name');
+        $grade->test_name = request('test_name');
+        $grade->lowest_passing_grade = request('lowest_passing_grade');
+        $grade->best_grade = request('best_grade');
+
+        $grade->save();
+
+        return redirect('grades');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Grade  $grade
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Grade $grade)
+    public function show($id)
     {
-        //
+        $grade = Grade::find($id);
+
+        return view('grades.show', ['grade' => $grade]);
+
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Grade  $grade
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Grade $grade)
+
+    public function edit($id)
     {
-        //
+        $grade = Grade::find($id);
+
+        return view('grades.edit', ['grade' => $grade]);
+    }
+
+
+    public function update($id)
+    {
+        $grade = Grade::find($id);
+
+        $grade->course_name = request('course_name');
+        $grade->test_name = request('test_name');
+        $grade->lowest_passing_grade = request('lowest_passing_grade');
+        $grade->best_grade = request('best_grade');
+
+        $grade->save();
+
+        return redirect('/grades/' . $grade->id);
+    }
+
+
+    public function delete($id){
+
+        $grade = Grade::find($id);
+
+        $grade->delete();
+
+        return redirect('/grades');
     }
 }

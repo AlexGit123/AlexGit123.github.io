@@ -4,6 +4,7 @@
 
 <link rel="stylesheet" href="/../css/style.css" />
 
+
 <body>
 <header>
     <div class="container">
@@ -24,7 +25,7 @@
 
                 <li class="{{ Request::path() === 'dashboard' ? 'current_item' : '' }}"><a href="/dashboard">Dashboard</a></li>
 
-                <li class="{{ Request::path() === 'FAQ' ? 'current_item' : '' }}"><a href="/FAQ">FAQ</a></li>
+                <li class="{{ Request::path() === 'FAQ' ? 'current_item' : '' }}"><a href="/faqs">FAQs</a></li>
 
                 <li class="{{ Request::path() === 'profession' ? 'current_item' : '' }}"><a href="/profession">profession</a></li>
 

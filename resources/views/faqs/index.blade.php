@@ -10,8 +10,9 @@
         @foreach($faqs as $faq)
             <details style="padding-bottom: 10px">
 
+
                 <summary>
-                    {{ $faq->question}}
+                    <a href="/faqs/{{$faq->id}}">{{ $faq->question}}</a>
                 </summary>
 
                 <p>
@@ -26,6 +27,5 @@
 
         @endforeach
     </ol>
-    
 </div>
 @endsection
