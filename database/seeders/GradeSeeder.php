@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Grade;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -20,5 +21,8 @@ class GradeSeeder extends Seeder
             'lowest_passing_grade' => 5.5,
             'best_grade' => 10
         ]);
+
+        Grade::factory()->count(10)->create();
+
     }
 }

@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Grade;
+use App\Models\Course;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class GradeFactory extends Factory
+class CourseFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Grade::class;
+    protected $model = Course::class;
 
     /**
      * Define the model's default state.
@@ -21,10 +21,8 @@ class GradeFactory extends Factory
      */
     public function definition()
     {
-            return [
-                'course_name' => $this->faker->sentence,
-                'test_name' => $this->faker->sentence,
-                'best_grade' => $this->faker->numberBetween(0,10)
-            ];
+        return [
+            //
+        ];
     }
 }
